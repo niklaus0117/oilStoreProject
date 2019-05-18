@@ -46,7 +46,7 @@ public class CustomerLoginServiceImpl implements CustomerLoginService{
 			throw new CustomerException("The phone number has been registered");
 		}
 		validaLoginName(customerLogin.getLoginName());
-		customerLogin.setModifiedTime(simpleDate.DataInfo());
+//		customerLogin.setModifiedTime(simpleDate.DataInfo());
 		Integer count = customerLoginDao.registeredCustomer(customerLogin);
 		return count;
 	}
@@ -64,7 +64,7 @@ public class CustomerLoginServiceImpl implements CustomerLoginService{
 		if(customer == null){
 			throw new CustomerException("”√ªß√˚¥ÌŒÛ");
 		}
-		if(customer.getPassword().equals(password)){
+		if(customer.getloginPwd().equals(password)){
 			return customer;
 		} else {
 			throw new CustomerException("√‹¬Î¥ÌŒÛ");

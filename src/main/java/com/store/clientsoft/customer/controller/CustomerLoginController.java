@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.store.clientsoft.common.Response;
 import com.store.clientsoft.customer.entity.CustomerLogin;
 import com.store.clientsoft.customer.service.CustomerLoginService;
+import com.store.clientsoft.exception.CustomerException;
+import com.store.clientsoft.util.Base64Code;
+import com.store.clientsoft.util.MD5Util;
+import com.store.clientsoft.util.UUIDUtils;
 
 @RestController
 @RequestMapping("/login")
@@ -26,7 +30,7 @@ public class CustomerLoginController {
 	
 	@PostMapping("/customerLogin")
 	public Response<CustomerLogin> Login(HttpServletRequest request,@RequestBody CustomerLogin customerLogin) throws Exception{
-		CustomerLogin customer = customerLoginService.customerLogin(customerLogin.getLoginName(), customerLogin.getPassword());
+		CustomerLogin customer = customerLoginService.customerLogin(customerLogin.getLoginName(), customerLogin.getloginPwd());
 		return new Response<CustomerLogin>("0", "TRUE", "SUCCESS", customer);
 	}
 	
@@ -37,8 +41,23 @@ public class CustomerLoginController {
 	}
 	
 	@PostMapping("/registeredCustomer")
-	public Response<String> registeredCustomer(@RequestBody CustomerLogin customerLogin) throws Exception{
-		Integer count = customerLoginService.registeredCustomer(customerLogin);
-		return new Response<String>("0", "TURE", "SUCCESS", "User resgistration is successful");
+	public Response<String> registeredCustomer(@RequestBody CustomerLogin customerLogin) throws CustomerException{
+		
+		Response<String> response = new Response<String>();
+		customerLogin.setloginPwd(MD5Util.string2MD5(Base64Code.base64decode(customerLogin.getloginPwd())));
+		customerLogin.setCustomerId(UUIDUtils.getUUID());
+		try {
+			if(customerLoginService.registeredCustomer(customerLogin) > 0){
+				response.setCode("0");
+				response.setState("TURE");
+				response.setMessage("SUCCESS");
+				response.setResponseDate("User resgistration is successful");
+			}else{
+				throw new CustomerException("ÓÃ»§×¢²áÊ§°Ü");
+			}
+		} catch (Exception e) {
+			throw new CustomerException(e.getMessage());
+		}
+		return response;
 	}
 }

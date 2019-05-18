@@ -3,29 +3,30 @@ package com.store.clientsoft.customer.entity;
 import java.util.Date;
 
 public class CustomerLogin {
-	private Integer customerId;
+	private String customerId;
 	private String mobilePhone;
 	private String loginName;
-	private String password;
+	private String loginPwd;
 	private String identityCardNo;
-	private Byte userStats;
+	private Integer userStats;
 	private Date modifiedTime;
 	
 	public CustomerLogin(){};
 	
-	public CustomerLogin(String mobilePhone, String loginName, String password, Byte userStats, Date modifiedTime){
+	public CustomerLogin(String customerId,String mobilePhone, String loginName, String loginPwd, Integer userStats, Date modifiedTime){
+		this.customerId = customerId;
 		this.mobilePhone = mobilePhone;
 		this.loginName = loginName;
-		this.password = password;
+		this.loginPwd = loginPwd;
 		this.userStats = userStats;
 		this.modifiedTime = modifiedTime;
 	}	
 	
-	public Integer getCustomerId() {
+	public String getCustomerId() {
 		return customerId;
 	}
 	
-	public void setCustomerId(Integer customerId) {
+	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
 	
@@ -37,19 +38,19 @@ public class CustomerLogin {
 		this.loginName = loginName;
 	}
 	
-	public String getPassword() {
-		return password;
+	public String getloginPwd() {
+		return loginPwd;
 	}
 	
-	public void setPassword(String password) {
-		this.password = password;
+	public void setloginPwd(String loginPwd) {
+		this.loginPwd = loginPwd;
 	}
 	
-	public Byte getUserStats() {
+	public Integer getUserStats() {
 		return userStats;
 	}
 	
-	public void setUserStats(Byte userStats) {
+	public void setUserStats(Integer userStats) {
 		this.userStats = userStats;
 	}
 	

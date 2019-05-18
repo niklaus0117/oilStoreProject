@@ -12,6 +12,8 @@ public class Response<T> {
 	
 	public static final String TIME_PATTIME = "yyyy-MM-dd'T'HH:mm:ss.SZ";
 	
+	public Response(){};
+	
 	public Response(String code, String state, String message, String timestamp, T responseDate){
 		this.code = code;
 		this.state = state;
