@@ -31,7 +31,7 @@ public class Base64Code {
 	public static String base64decode(String s){
 		try{
 			String decodeStr = new String(decoder.decodeBuffer(s));
-						
+
 			return decodeStr;
 		}catch(Exception e){
 			return s;

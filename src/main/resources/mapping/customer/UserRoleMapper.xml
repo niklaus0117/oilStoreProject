@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.store.clientsoft.customer.dao.UserRoleDao">
+ 	<resultMap id="BaseResultMap" type="com.store.clientsoft.customer.entity.UserRole">
+ 		<id column="ROLE_ID" jdbcType="VARCHAR" property="roleId" />
+ 		<result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName" />
+ 	</resultMap>
+ 	
+ 	<sql id="Base_Column_List">
+    	ROLE_ID, ROLE_NAME
+  	</sql>
+  	
+  	<select id="validaRoleName" resultType="Integer" parameterType="java.lang.String">
+  		select count(*) from USER_ROLE where ROLE_NAME = #{roleName}
+  	</select>
+  	
+  	<insert id="addUserRole" parameterType="com.store.clientsoft.customer.entity.UserRole">
+		insert into USER_ROLE (ROLE_ID, ROLE_NAME) values (#{roleId}, #{roleName});
+  	</insert>
+  	
+  
+</mapper>

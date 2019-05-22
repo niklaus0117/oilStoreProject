@@ -76,13 +76,4 @@ public class MD5Util {
 	public static String file2Md5(String filepath) throws FileNotFoundException {
 		return file2Md5(new File(filepath));
 	}
-	// 测试主函数
-	public static void main(String args[]) throws FileNotFoundException {
-		String s = new String("123456");
-		System.out.println("原始：" + s);
-		System.out.println("MD5后：" + string2MD5(s));
-
-		System.out.println("原始："+ file2Md5("E:\\V60531-101716.mp4"));
-
-	}
 }

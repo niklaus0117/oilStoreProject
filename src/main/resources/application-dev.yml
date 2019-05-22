@@ -15,8 +15,7 @@ mybatis:
   type-aliases-package: com.store.clientsoft.*.entity
 
 #showSql
-logging:
-  level:
-    com:
-      annguo:
-        mapper : debug
+logging: 
+  config: classpath:logback-spring.xml
+  level: 
+    com.store.clientsoft.*.dao: info

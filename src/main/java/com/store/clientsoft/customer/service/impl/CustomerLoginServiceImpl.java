@@ -22,7 +22,7 @@ public class CustomerLoginServiceImpl implements CustomerLoginService{
 	private SimpleDateFormatDate simpleDate;
 	
 	@Override
-	public Integer validaLoginName(String loginName) throws Exception {
+	public int validaLoginName(String loginName) throws Exception {
 		Integer loginNameCount = customerLoginDao.validaLoginName(loginName);
 		if (loginNameCount > 0) {
 			throw new CustomerException("username already exists");
@@ -31,7 +31,7 @@ public class CustomerLoginServiceImpl implements CustomerLoginService{
 	}
 	
 	@Override
-	public Integer validaMobilePhone(String mobilePhone) throws Exception {
+	public int validaMobilePhone(String mobilePhone) throws Exception {
 		Integer mobilePhoneCount = customerLoginDao.validaMobilePhone(mobilePhone);
 		if (mobilePhoneCount > 0) {
 			throw new CustomerException("The phone number has been registered");
@@ -40,7 +40,7 @@ public class CustomerLoginServiceImpl implements CustomerLoginService{
 	}
 	
 	@Override
-	public Integer registeredCustomer(CustomerLogin customerLogin) throws Exception {
+	public int registeredCustomer(CustomerLogin customerLogin) throws Exception {
 		Integer mobilePhoneCount = customerLoginDao.validaMobilePhone(customerLogin.getMobilePhone());
 		if (mobilePhoneCount > 0) {
 			throw new CustomerException("The phone number has been registered");
@@ -64,7 +64,7 @@ public class CustomerLoginServiceImpl implements CustomerLoginService{
 		if(customer == null){
 			throw new CustomerException("ÓÃ»§Ãû´íÎó");
 		}
-		if(customer.getloginPwd().equals(password)){
+		if(customer.getLoginPwd().equals(password)){
 			return customer;
 		} else {
 			throw new CustomerException("ÃÜÂë´íÎó");

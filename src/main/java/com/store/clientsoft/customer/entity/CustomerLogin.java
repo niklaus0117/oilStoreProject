@@ -10,16 +10,18 @@ public class CustomerLogin {
 	private String identityCardNo;
 	private Integer userStats;
 	private Date modifiedTime;
+	private String roleId;
 	
 	public CustomerLogin(){};
 	
-	public CustomerLogin(String customerId,String mobilePhone, String loginName, String loginPwd, Integer userStats, Date modifiedTime){
+	public CustomerLogin(String customerId,String mobilePhone, String loginName, String loginPwd, Integer userStats, Date modifiedTime, String roleId){
 		this.customerId = customerId;
 		this.mobilePhone = mobilePhone;
 		this.loginName = loginName;
 		this.loginPwd = loginPwd;
 		this.userStats = userStats;
 		this.modifiedTime = modifiedTime;
+		this.roleId = roleId;
 	}	
 	
 	public String getCustomerId() {
@@ -38,11 +40,11 @@ public class CustomerLogin {
 		this.loginName = loginName;
 	}
 	
-	public String getloginPwd() {
+	public String getLoginPwd() {
 		return loginPwd;
 	}
 	
-	public void setloginPwd(String loginPwd) {
+	public void setLoginPwd(String loginPwd) {
 		this.loginPwd = loginPwd;
 	}
 	
@@ -78,6 +80,13 @@ public class CustomerLogin {
 		this.identityCardNo = identityCardNo;
 	}
 	
+	public String getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
 	
 	
 }
