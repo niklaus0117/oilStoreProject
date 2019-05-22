@@ -9,10 +9,11 @@
  		<result column="IDENTITY_CARD_NO" jdbcType="VARCHAR" property="identityCardNo" />
  		<result column="USER_STATS" jdbcType="INTEGER" property="userStats" />
  		<result column="MODIFIED_TIME" jdbcType="DATE" property="modifiedTime" />
+ 		<result column="ROLE_ID" jdbcType="VARCHAR" property="roleId" />
  	</resultMap>
  	
  	<sql id="Base_Column_List">
-    	CUSTOMER_ID, MOBILE_PHONE, LOGIN_NAME, LOGIN_PWD, IDENTITY_CARD_NO, USER_STATS, MODIFIED_TIME
+    	CUSTOMER_ID, MOBILE_PHONE, LOGIN_NAME, LOGIN_PWD, IDENTITY_CARD_NO, USER_STATS, MODIFIED_TIME, ROLE_ID
   	</sql>
   	<!-- 登录验证 -->
   	<select id="validaCustomerLogin" resultMap="BaseResultMap" parameterType="java.lang.String">
@@ -30,8 +31,8 @@
   	</select>
   	<!-- 注册用户 -->
   	<insert id="registeredCustomer" parameterType="com.store.clientsoft.customer.entity.CustomerLogin">
-  		INSERT INTO CUSTOMER_LOGIN (CUSTOMER_ID, MOBILE_PHONE, LOGIN_NAME, LOGIN_PWD) 
-  		VALUES (#{customerId,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR})
+  		INSERT INTO CUSTOMER_LOGIN (CUSTOMER_ID, MOBILE_PHONE, LOGIN_NAME, LOGIN_PWD, ROLE_ID) 
+  		VALUES (#{customerId,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR})
   	</insert>
   
 </mapper>

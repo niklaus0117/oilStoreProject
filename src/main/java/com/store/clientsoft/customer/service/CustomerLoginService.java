@@ -6,10 +6,10 @@ public interface CustomerLoginService {
 	
 	public CustomerLogin customerLogin(String loginName,String password) throws Exception;
 	
-	public Integer validaLoginName(String loginName) throws Exception;
+	public int validaLoginName(String loginName) throws Exception;
 	
-	public Integer validaMobilePhone(String mobilePhone) throws Exception;
+	public int validaMobilePhone(String mobilePhone) throws Exception;
 	
-	public Integer registeredCustomer(CustomerLogin customerLogin) throws Exception;
+	public int registeredCustomer(CustomerLogin customerLogin) throws Exception;
 
 }

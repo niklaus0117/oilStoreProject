@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.store.clientsoft.common.Response;
-import com.store.clientsoft.exception.constans.Constants;
+import com.store.clientsoft.exception.constants.ResConstants;
 
 @ControllerAdvice
 public class ErrorException {
@@ -21,7 +21,7 @@ public class ErrorException {
 	@ResponseStatus()
 	@ResponseBody
 	public Response<String> customerHandler(HttpServletRequest res, Exception e){
-		return new Response<String>(Constants.RESPONSE_CODE_ERROR, Constants.RESPONSE_CODE_ERROR_STATE,
-				Constants.RESPONSE_CODE_ERROR_MESSAGE, ((CustomerException)e).getMessage());
+		return new Response<String>(ResConstants.RESPONSE_CODE_ERROR, ResConstants.RESPONSE_CODE_ERROR_STATE,
+				ResConstants.RESPONSE_CODE_ERROR_MESSAGE, ((CustomerException)e).getMessage());
 	}
 }

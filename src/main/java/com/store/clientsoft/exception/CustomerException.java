@@ -1,12 +1,12 @@
 package com.store.clientsoft.exception;
 
-import com.store.clientsoft.exception.constans.Constants;
+import com.store.clientsoft.exception.constants.ResConstants;
 
 public class CustomerException extends Exception{
 
 	private static final long serialVersionUID = 1L;
 	private String code;
-	private Constants states;
+	private ResConstants states;
 	private String messgage;
 	
 	public CustomerException() {
@@ -32,14 +32,14 @@ public class CustomerException extends Exception{
 		this.messgage = message;
 	}
 	
-	public CustomerException(String code, Constants states, String messgage) {
+	public CustomerException(String code, ResConstants states, String messgage) {
 		super();
 		this.code = code;
 		this.states = states;
 		this.messgage = messgage;
 	}
 	
-	public CustomerException(String code, Constants states, String messgage, Throwable cause) {
+	public CustomerException(String code, ResConstants states, String messgage, Throwable cause) {
 		super(messgage, cause);
 		this.code = code;
 		this.states = states;
@@ -52,10 +52,10 @@ public class CustomerException extends Exception{
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public Constants getStates() {
+	public ResConstants getStates() {
 		return states;
 	}
-	public void setStates(Constants states) {
+	public void setStates(ResConstants states) {
 		this.states = states;
 	}
 	public String getMessgage() {
