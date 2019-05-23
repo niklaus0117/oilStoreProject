@@ -7,13 +7,14 @@
  		<result column="LOGIN_NAME" jdbcType="VARCHAR" property="loginName" />
  		<result column="LOGIN_PWD" jdbcType="VARCHAR" property="loginPwd" />
  		<result column="IDENTITY_CARD_NO" jdbcType="VARCHAR" property="identityCardNo" />
- 		<result column="USER_STATS" jdbcType="INTEGER" property="userStats" />
+ 		<result column="USER_STATUS" jdbcType="INTEGER" property="userStatus" />
+ 		<result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
  		<result column="MODIFIED_TIME" jdbcType="DATE" property="modifiedTime" />
  		<result column="ROLE_ID" jdbcType="VARCHAR" property="roleId" />
  	</resultMap>
  	
  	<sql id="Base_Column_List">
-    	CUSTOMER_ID, MOBILE_PHONE, LOGIN_NAME, LOGIN_PWD, IDENTITY_CARD_NO, USER_STATS, MODIFIED_TIME, ROLE_ID
+    	CUSTOMER_ID, MOBILE_PHONE, LOGIN_NAME, LOGIN_PWD, IDENTITY_CARD_NO, USER_STATUS, CREATE_TIME, MODIFIED_TIME, ROLE_ID
   	</sql>
   	<!-- 登录验证 -->
   	<select id="validaCustomerLogin" resultMap="BaseResultMap" parameterType="java.lang.String">

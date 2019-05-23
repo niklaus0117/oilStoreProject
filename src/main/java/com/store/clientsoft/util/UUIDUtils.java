@@ -4,18 +4,18 @@ import java.util.UUID;
 
 public class UUIDUtils {
 	/** 
-     * »ñµÃÒ»¸öUUID 
+     * è·å¾—ä¸€ä¸ªUUID 
      * @return String UUID 
      */ 
     public static String getUUID(){ 
         String s = UUID.randomUUID().toString(); 
-        //È¥µô¡°-¡±·ûºÅ 
+        //å»æ‰â€œ-â€ç¬¦å· 
         return s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,23)+s.substring(24); 
     } 
     /** 
-     * »ñµÃÖ¸¶¨ÊıÄ¿µÄUUID 
-     * @param number int ĞèÒª»ñµÃµÄUUIDÊıÁ¿ 
-     * @return String[] UUIDÊı×é 
+     * è·å¾—æŒ‡å®šæ•°ç›®çš„UUID 
+     * @param number int éœ€è¦è·å¾—çš„UUIDæ•°é‡ 
+     * @return String[] UUIDæ•°ç»„ 
      */ 
     public static String[] getUUID(int number){ 
         if(number < 1){ 

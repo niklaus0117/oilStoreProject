@@ -32,7 +32,21 @@ public class CustomerLoginController {
 	
 	@PostMapping("/customerLogin")
 	public Response<CustomerLogin> Login(HttpServletRequest request,@RequestBody CustomerLogin customerLogin) throws Exception{
-		CustomerLogin customer = customerLoginService.customerLogin(customerLogin.getLoginName(), customerLogin.getLoginPwd());
+		
+		if (!"".equals(customerLogin.getLoginPwd()) && customerLogin.getLoginPwd() != null) {
+			customerLogin.setLoginPwd(MD5Util.string2MD5(Base64Code.base64encode(customerLogin.getLoginPwd())));
+		}
+		CustomerLogin customer = null;
+		try {
+			customer = customerLoginService.customerLogin(customerLogin.getLoginName(), customerLogin.getLoginPwd());
+			if (customer != null) {
+				logger.info(customer.getLoginName() + "ÁôªÂΩïÊàêÂäü");
+				request.getSession().setAttribute("customerLoginInfo", customer);
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			throw new CustomerException(e.getMessage());
+		}
 		return new Response<CustomerLogin>(ResConstants.RESPONSE_CODE_SUCCESS, ResConstants.RESPONSE_CODE_STATE,
 				ResConstants.RESPONSE_CODE_MESSAGE, customer);
 	}
@@ -48,16 +62,16 @@ public class CustomerLoginController {
 	public Response<String> registeredCustomer(@RequestBody CustomerLogin customerLogin) throws CustomerException{
 		
 		Response<String> response = null;
-		customerLogin.setLoginPwd(MD5Util.string2MD5(Base64Code.base64decode(customerLogin.getLoginPwd())));
+		customerLogin.setLoginPwd(MD5Util.string2MD5(Base64Code.base64encode(customerLogin.getLoginPwd())));
 		customerLogin.setCustomerId(UUIDUtils.getUUID());
-		customerLogin.setRoleId(Constants.CUSTOMER_ROLE_ID);//πÀøÕ◊¢≤·
+		customerLogin.setRoleId(Constants.CUSTOMER_ROLE_ID);//È°æÂÆ¢Ê≥®ÂÜå
 		try {
-			if(customerLoginService.registeredCustomer(customerLogin) > 0){
+			if (customerLoginService.registeredCustomer(customerLogin) > 0) {
 				logger.info("User resgistration is successful");
 				response = new Response<String>(ResConstants.RESPONSE_CODE_SUCCESS, ResConstants.RESPONSE_CODE_STATE,
 						ResConstants.RESPONSE_CODE_MESSAGE, "User resgistration is successful");
-			}else{
-				throw new CustomerException("”√ªß◊¢≤· ß∞‹");
+			} else {
+				throw new CustomerException("Áî®Êà∑Ê≥®ÂÜåÂ§±Ë¥•");
 			}
 		} catch (Exception e) {
 			throw new CustomerException(e.getMessage());

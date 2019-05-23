@@ -8,9 +8,9 @@ public interface CustomerLoginDao {
 	
 	CustomerLogin validaCustomerLogin(@Param("loginName")String loginName);
 	
-	Integer validaLoginName(String loginName);
+	Integer validaLoginName(@Param("loginName")String loginName);
 	
-	Integer validaMobilePhone(String mobilePhone);
+	Integer validaMobilePhone(@Param("mobilePhone")String mobilePhone);
 	
 	Integer registeredCustomer(CustomerLogin customerLogin);
 	

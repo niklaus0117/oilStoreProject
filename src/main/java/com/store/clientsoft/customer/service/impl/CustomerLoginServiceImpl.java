@@ -54,20 +54,20 @@ public class CustomerLoginServiceImpl implements CustomerLoginService{
 	@Override
 	public CustomerLogin customerLogin(String loginName, String password) throws Exception {
 		if(loginName.equals("")){
-			throw new CustomerException("ÓÃ»§Ãû²»ÄÜÎª¿Õ");
+			throw new CustomerException("ç”¨æˆ·åä¸èƒ½ä¸ºç©º");
 		}
 		if(password.equals("")){
-			throw new CustomerException("ÃÜÂë²»ÄÜÎª¿Õ");
+			throw new CustomerException("å¯†ç ä¸èƒ½ä¸ºç©º");
 		}
 		
 		CustomerLogin customer = customerLoginDao.validaCustomerLogin(loginName);
 		if(customer == null){
-			throw new CustomerException("ÓÃ»§Ãû´íÎó");
+			throw new CustomerException("ç”¨æˆ·åé”™è¯¯");
 		}
 		if(customer.getLoginPwd().equals(password)){
 			return customer;
 		} else {
-			throw new CustomerException("ÃÜÂë´íÎó");
+			throw new CustomerException("å¯†ç é”™è¯¯");
 		}
 	}
 
