@@ -22,7 +22,7 @@ public class UserRoleServiceImpl implements UserRoleService{
 		Integer count = userRoleDao.validaRoleName(roleName);
 		if (count > 0) {
 			logger.error("The role name already exisis!");
-			throw new CustomerException("½ÇÉ«ÃûÒÑ¾­´æÔÚ");
+			throw new CustomerException("è§’è‰²åå·²ç»å­˜åœ¨");
 		}
 		return count;
 	}
@@ -30,7 +30,7 @@ public class UserRoleServiceImpl implements UserRoleService{
 	@Override
 	public int addUserRole(UserRole userRole) throws CustomerException {
 		if ("".equals(userRole.getRoleName())) {
-			throw new CustomerException("½ÇÉ«Ãû²»ÄÜÎª¿Õ");
+			throw new CustomerException("è§’è‰²åä¸èƒ½ä¸ºç©º");
 		}
 		validaRoleName(userRole.getRoleName());
 		int count = 0; 

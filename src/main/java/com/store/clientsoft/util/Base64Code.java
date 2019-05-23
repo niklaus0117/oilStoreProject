@@ -9,14 +9,14 @@ public class Base64Code {
 	private static BASE64Decoder decoder = new BASE64Decoder();
 	
 	/**
-	 * Base64 ¼ÓÃÜ
+	 * Base64 åŠ å¯†
 	 * @param String
 	 * @return String
 	 */
 	public static String base64encode(String s){
 		try{
 			String encodeStr = encoder.encode(s.getBytes());
-			
+
 			return encodeStr;
 		}catch(Exception e){
 			return s;
@@ -24,7 +24,7 @@ public class Base64Code {
 	}
 	
 	/**
-	 * Base64 ½âÃÜ
+	 * Base64 è§£å¯†
 	 * @param s
 	 * @return
 	 */

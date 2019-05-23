@@ -4,14 +4,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class SimpleDateFormatDate {
 	
 	/*
-	 * 鑾峰彇绯荤粺褰撳墠鏃堕棿杩斿洖date
+	 * 获取系统当前时间返回date
 	 */
 	public Date DataInfo(){
 		SimpleDateFormat df=new  SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -28,7 +27,7 @@ public class SimpleDateFormatDate {
 	}
 	
 	/*
-	 * 鑾峰彇褰撳墠鏃堕棿杩斿洖string
+	 * 获取当前时间返回string
 	 */
 	public String StringInfo(){
 		SimpleDateFormat df=new  SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -36,7 +35,7 @@ public class SimpleDateFormatDate {
 		return str;
 	}
 	/*
-	 * 鑾峰彇褰撳墠鏃堕棿杩斿洖string
+	 * 获取当前时间返回string
 	 */
 	public String StringYMDInfo(){
 		SimpleDateFormat df=new  SimpleDateFormat("yyyy-MM-dd");
@@ -44,7 +43,7 @@ public class SimpleDateFormatDate {
 		return str;
 	}
 	/*
-	 * 鑾峰彇褰撳墠鏃堕棿杩斿洖string
+	 * 获取当前时间返回string
 	 */
 	public String DateToStrYear(){
 		SimpleDateFormat df=new  SimpleDateFormat("yyyy");
@@ -52,7 +51,7 @@ public class SimpleDateFormatDate {
 		return str;
 	}
 	/*
-	 * 鑾峰彇褰撳墠鏃堕棿杩斿洖string
+	 * 获取当前时间返回string
 	 */
 	public String DateToStrMonth(){
 		SimpleDateFormat df=new  SimpleDateFormat("yyyy-MM");
@@ -61,7 +60,7 @@ public class SimpleDateFormatDate {
 	}
 	
 	/*
-	 * Date鏃堕棿鏍煎紡杞垚String
+	 * Date时间格式转成String
 	 */
 	public String DateToString(Date date){
 		SimpleDateFormat df=new  SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -69,11 +68,11 @@ public class SimpleDateFormatDate {
 		return str;
 	}
 	/*
-	 * String鏃堕棿鏍煎紡杞垚date
+	 * String时间格式转成date
 	 */
 	
 	public Date StringToData(String dateStr){
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//灏忓啓鐨刴m琛ㄧず鐨勬槸鍒嗛挓   		
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//小写的mm表示的是分钟   		
 		Date date=null;
 		try {
 			date = sdf.parse(dateStr);
@@ -87,7 +86,7 @@ public class SimpleDateFormatDate {
 		return date;
 	}
 	/*
-	 * 褰撳墠鏃堕棿鐨勭煭鏃堕棿鏍煎紡杞崲鎴怱tring
+	 * 当前时间的短时间格式转换成String
 	 */
 	public String dateToString(){
 		Date date=new Date();
@@ -97,7 +96,7 @@ public class SimpleDateFormatDate {
 	}
 	
 	/*
-	 * 褰撳墠鏃堕棿鐨勭煭鏃堕棿鏍煎紡杩斿洖Date
+	 * 当前时间的短时间格式返回Date
 	 */
 	public Date dateTodate(){
 		SimpleDateFormat df=new SimpleDateFormat("HH:mm:ss");
@@ -113,11 +112,11 @@ public class SimpleDateFormatDate {
 		return date;
 	}
 	/*
-	 * String鐭椂闂存牸寮忚浆鎴恉ate
+	 * String短时间格式转成date
 	 */
 	
 	public Date StringTodata(String dateStr){
-		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");//灏忓啓鐨刴m琛ㄧず鐨勬槸鍒嗛挓   		
+		SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");//小写的mm表示的是分钟   		
 		Date date=null;
 		try {
 			date = sdf.parse(dateStr);
@@ -131,7 +130,7 @@ public class SimpleDateFormatDate {
 		return date;
 	}
 	/*
-	 * String杞垚yyyy-MM-DD鐭椂闂�
+	 * String转成yyyy-MM-DD短时间
 	 */
 
 	public String StringYMDTtoStr(String datestr){

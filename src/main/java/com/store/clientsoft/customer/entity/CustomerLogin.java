@@ -8,22 +8,23 @@ public class CustomerLogin {
 	private String loginName;
 	private String loginPwd;
 	private String identityCardNo;
-	private Integer userStats;
+	private Integer userStatus;
+	private Date createTime;
 	private Date modifiedTime;
 	private String roleId;
 	
 	public CustomerLogin(){};
 	
-	public CustomerLogin(String customerId,String mobilePhone, String loginName, String loginPwd, Integer userStats, Date modifiedTime, String roleId){
+	public CustomerLogin(String customerId,String mobilePhone, String loginName, String loginPwd, Integer userStatus, Date modifiedTime, String roleId){
 		this.customerId = customerId;
 		this.mobilePhone = mobilePhone;
 		this.loginName = loginName;
 		this.loginPwd = loginPwd;
-		this.userStats = userStats;
+		this.userStatus = userStatus;
 		this.modifiedTime = modifiedTime;
 		this.roleId = roleId;
-	}	
-	
+	}
+
 	public String getCustomerId() {
 		return customerId;
 	}
@@ -48,12 +49,20 @@ public class CustomerLogin {
 		this.loginPwd = loginPwd;
 	}
 	
-	public Integer getUserStats() {
-		return userStats;
+	public Integer getUserStatus() {
+		return userStatus;
 	}
 	
-	public void setUserStats(Integer userStats) {
-		this.userStats = userStats;
+	public void setUserStatus(Integer userStatus) {
+		this.userStatus = userStatus;
+	}
+	
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 	
 	public Date getModifiedTime() {

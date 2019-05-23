@@ -11,10 +11,10 @@ import java.security.MessageDigest;
 
 public class MD5Util {
 	/**
-	 * Ãû³Æ£ºstring2MD5
-	 * ÃèÊö£ºMD5¼ÓÂë Éú³É32Î»md5Âë
-	 * @param inStr  String	´ı¼ÓÃÜµÄÃ÷ÎÄ       
-	 * @return String ¼ÓÃÜºóµÄ32Î»ÃÜÎÄ
+	 * åç§°ï¼šstring2MD5
+	 * æè¿°ï¼šMD5åŠ ç  ç”Ÿæˆ32ä½md5ç 
+	 * @param inStr  String	å¾…åŠ å¯†çš„æ˜æ–‡       
+	 * @return String åŠ å¯†åçš„32ä½å¯†æ–‡
 	 * @since  2014-06-12
 	 */
 	public static String string2MD5(String inStr){
@@ -45,7 +45,7 @@ public class MD5Util {
 
 	/**
 	 * file2Md5
-	 * ÎÄ¼şÉú³ÉMD5Öµ
+	 * æ–‡ä»¶ç”ŸæˆMD5å€¼
 	 * @param file
 	 * @return
 	 * @throws FileNotFoundException

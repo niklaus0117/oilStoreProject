@@ -34,7 +34,7 @@ public class UserRoleController {
 			response = new Response<String>(ResConstants.RESPONSE_CODE_SUCCESS, ResConstants.RESPONSE_CODE_STATE,
 					ResConstants.RESPONSE_CODE_MESSAGE, " add role is successful");
 		} else {
-			throw new CustomerException("Ìí¼ÓÐÂ½ÇÉ«Ê§°Ü");
+			throw new CustomerException("æ·»åŠ æ–°è§’è‰²å¤±è´¥");
 		}
 		return response;
 	}
